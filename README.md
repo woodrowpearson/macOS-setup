@@ -4,23 +4,27 @@
 
  Setup of a new mac, including all dotfiles and dev related tools. Also a big list of mac apps I have installed and what they do.
 
-## 1. Install brew
+## Step 0: Install Xcode from the app store.j
+
+## Step 1: Install Mac packages and deps
+
+###  Install brew
 
 ```sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-## 2. Install deps
+### Install deps
 
 ```sh
 git clone https://github.com/woodrowpearson/macOS-setup.git
 cd macOS-setup/
 
-# edit Brewfile to remove/add things
+# edit Brewfile to remove/add things then run command:
 brew bundle
 ```
 
-## 3. Install dotfiles
+## Step 2: Install dotfiles
 
 ```sh
 git clone https://github.com/woodrowpearson/dotfiles.git ~/.dotfiles
@@ -29,32 +33,39 @@ cd ~/.dotfiles
 zsh # reload zsh
 ```
 
-MacOS defaults I've found from others dotfiles. I don't use most of them but for posterity I have added them:
 
-```console
-./macos/set-defaults
-```
+## Step 3: Change MacOS system configurations
 
-## 4. Setup SSH keys
+## Step 4:  Setup tools, security, & identity for development
 
-Create a new SSH key or copy the previous one into `~/.ssh`. That should be
-it.
+### Generate SSH Key
+Create a new SSH key or copy an existing  one into `~/.ssh`.
 
 ```console
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-Also fix perms:
 
+
+# Set permissions
 ```console
 $ chmod 0600 ~/.ssh/id_rsa
 ```
 
+> Make sure the permissions are set correctly for the key.
+> .rw-------
+
 ## 5. Setup GPG signing
 
-Create default config files:
-
+> We need to create the gpg conf file
 ```console
+touch ~/.gnupg/gpg-agent.conf
+```
+
+> Create your gpg key & verify it.
+```console
+gpg --full-generate-key
+
 gpg --list-keys
 ```
 
@@ -70,21 +81,19 @@ Import the key:
 
 ```console
 $ export GPG_TTY=$(tty)
-$ keybase pgp export -q C14AB940 | gpg --import
-$ keybase pgp export -q C14AB940 --secret | gpg --import --allow-secret-key-import
+$ keybase pgp export -q yourkeyHERE | gpg --import
+$ keybase pgp export -q yourkeyHERE --secret | gpg --import --allow-secret-key-import
 ```
 
-> Change C14AB940 with your key id.
+> If you don't know your key `gpg --list-keys`
 
 Setup git:
 
 ```console
 $ git config --global gpg.program $(which gpg)
-$ git config --global user.signingkey C14AB940
+$ git config --global user.signingkey yourkeyHERE
 $ git config --global commit.gpgsign true
 ```
-
-> Change C14AB940 with your key id.
 
 Test it:
 
@@ -92,7 +101,7 @@ Test it:
 $ mkdir -p /tmp/test
 $ cd $_
 $ git init
-$ git commit --allow-empty -m 'signsss'
+$ git commit --allow-empty -m 'fooo barrr'
 $ git log --show-signature
 ```
 
@@ -118,8 +127,8 @@ sudo reboot
 - [qBittorrent](https://www.qbittorrent.org/) - Opensource alternative to utorrent
 - [Screen](https://screen.so/#/home) - Fast, free, screen sharing with multiple user control, drawing, and recording.
 - [Mind Node](https://mindnode.com) - Interactive Mind Mapping. Visually expand upon ideas you have
-- [VS Code](https://github.com/Microsoft/vscode) - Code editor
 - [Dash](https://kapeli.com/dash) - API Documentation Browser
 - [Hazel](https://www.noodlesoft.com) - Automated File Organization
 - [GPG Suite](https://gpgtools.org/) - Encrypt, decrypt, sign and verify files or messages.
-
+- [Pycharm IDE](https://www.jetbrains.com/pycharm/) - Great IDE if vim isn't
+  cutting it.

@@ -106,8 +106,6 @@ brew "mtr", link: false
 brew "m-cli"
 # A command-line system information tool written in bash 3.2+
 brew "neofetch"
-# 'The text editor that has a cult following. im still learning why'
-brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
 # Postgres CLI with autocompletion and syntax highlighting."
@@ -120,6 +118,8 @@ brew "pinentry-mac"
 brew "pstree"
 # Pipe Viewer
 brew "pv"
+# install python
+brew "python@3.8"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Search tool like grep and The Silver Searcher
@@ -176,6 +176,9 @@ cask "font-hack"
 cask "font-jetbrains-mono"
 cask "hazel"
 cask "goland"
+cask "intellij-idea-ce"
+cask "java"
+cask "keepingyouawake"
 cask "kap"
 cask "keepingyouawake"
 cask "keybase"
@@ -184,4 +187,6 @@ cask "now"
 cask "postgres"
 # tool that's used for performing queries on streams of records in various formats.
 cask "rq"
+cask "subtitles"
+cask "quicklook-csv"
 cask "quicklook-json"
