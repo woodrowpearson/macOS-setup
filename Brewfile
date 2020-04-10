@@ -176,6 +176,7 @@ cask "font-hack"
 cask "font-jetbrains-mono"
 cask "hazel"
 cask "goland"
+cask "imageoptim" # img optimizations and removing exif data
 cask "intellij-idea-ce"
 cask "java"
 cask "keepingyouawake"
@@ -184,6 +185,7 @@ cask "keepingyouawake"
 cask "keybase"
 cask "ngrok"
 cask "now"
+cask "onionshare" # share or receive files over tor. Or static website hosting.
 cask "postgres"
 # tool that's used for performing queries on streams of records in various formats.
 cask "rq"
