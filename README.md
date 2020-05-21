@@ -1,10 +1,12 @@
 # MacOS Catalina setup.
 > Includes package mgmt (brew), dotfiles, mac system config changes, installing packages, setting up git with pgp.
-> Last is recommended apps I use on my mac.
+> Last is recommended apps I use on my mac. You can also visit my always
+> growing wiki page of tools and literature on just about anything tech.
+> [woodrow.wiki](https://www.woodrow.wiki)
 
  Setup of a new mac, including all dotfiles and dev related tools. Also a big list of mac apps I have installed and what they do.
 
-## Step 0: Install Xcode from the app store.j
+## Step 0: Install Xcode from the app store.
 
 ## Step 1: Install Mac packages and deps
 
